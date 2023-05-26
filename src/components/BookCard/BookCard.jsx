@@ -25,21 +25,24 @@ export default function BookCard(props) {
           
         </div>
         
-        <div className='buttonsAndProgress'>
+        <div className='button'>
           <button className='details'>
             Detalhes
           </button>
 
+          <div className='progress'>
           <div 
               className='progressBar' 
               style={{ 
                 width: (`${book.progress}%`), 
                 height: '5px', 
-                backgroundColor: '#6CE44E'
+                backgroundColor: '#6CE44E',
+                margin: 0,
+                padding: 0
               }}
               title={`${book.progress}%`}
           >
-                
+          </div>
           </div>
         </div>
       </div>

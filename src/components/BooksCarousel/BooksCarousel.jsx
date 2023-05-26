@@ -1,4 +1,4 @@
-import { React, useRef } from 'react';
+import { React, useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
@@ -9,12 +9,22 @@ import './BooksCarousel.css'
 
 import { Pagination, Navigation } from 'swiper';
 import BookCard from '../BookCard/BookCard';
+import { getBooks } from '../../services/BookService';
 
 export default function BooksCarousel(options) {
 
   
   const slidesPerView = Math.round(window.innerWidth / 175 )
   const rows = Number(options['rows'])
+
+  const [books, setBooks] = useState([]);
+
+  useEffect(() => { 
+    async function b() {
+      const books = await getBooks();
+      setBooks(books);
+    }
+  })
 
   return (
     <>
@@ -28,7 +38,7 @@ export default function BooksCarousel(options) {
             className='mySwiper'
         >
           <SwiperSlide><BookCard book={{ title: "A bala de prata", author: "Rohit", progress: 70, rating: 2.4 }}/></SwiperSlide>
-          <SwiperSlide><BookCard book={{ title: "A bala de prata", author: "Rohit", progress: 70, rating: 4 }}/></SwiperSlide>
+          <SwiperSlide><BookCard book={{ title: "A bala de prata", author: "Rohit", progress: 100, rating: 4 }}/></SwiperSlide>
           <SwiperSlide><BookCard book={{ title: "A bala de prata", author: "Rohit", progress: 70, rating: 4 }}/></SwiperSlide>
           <SwiperSlide><BookCard book={{ title: "A bala de prata", author: "Rohit", progress: 70, rating: 4 }}/></SwiperSlide>
           <SwiperSlide><BookCard book={{ title: "A bala de prata", author: "Rohit", progress: 70, rating: 4 }}/></SwiperSlide>
