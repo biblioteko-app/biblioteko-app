@@ -1,8 +1,15 @@
 {
     "user": [
-        { "id": 1, "name": "Vitor Emanuel", "email": "vitor.santos@ccc.ufcg.edu.br", "password": "1234", "role": "student" },
-        { "id": 2, "name": "Ana Paula", "email": "ana.paula.santos@ccc.ufcg.edu.br", "password": "1234", "role": "professor" },
-        { "id": 3, "name": "Junior", "email": "junior@ccc.ufcg.edu.br", "password": "1234", "role": "professor" }
+        { 
+            "id": 1, 
+            "name": "Vitor Emanuel", 
+            "email": "vitor.santos@ccc.ufcg.edu.br", 
+            "password": "1234", 
+            "role": "student",
+            "starredBooks": [ 1 ]
+        },
+        { "id": 2, "name": "Ana Paula", "email": "ana.paula.santos@ccc.ufcg.edu.br", "password": "1234", "role": "professor", "starredBooks": [2] },
+        { "id": 3, "name": "Junior", "email": "junior@ccc.ufcg.edu.br", "password": "1234", "role": "professor", "starredBooks": [2]  }
     ],
     "book": [
         { 

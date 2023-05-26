@@ -1,0 +1,46 @@
+.card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #483E80;
+    background-color: #d9d9d940;
+    padding: 10px;
+}
+
+.title {
+    font-size: 18px;
+    margin: 5px;
+}
+
+.author {
+    font-size: 12px;
+    margin: 5px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+}
+
+.rating {
+    margin: 5px;
+}
+
+.MuiRating-iconFilled {
+    color: #483E80;
+}
+
+.details {
+    margin: 10px;
+    height: 25px;
+    border-radius: 10px;
+    border-color: #FFFFFF00;
+    background-color: #63C7B2;
+    color: white;
+    
+    &:hover {
+        background-color: #553399;
+        transition: 300ms;
+    }
+}
