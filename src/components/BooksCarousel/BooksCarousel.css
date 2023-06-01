@@ -1,0 +1,19 @@
+.carousel {
+    display: flex;
+}
+
+.title {
+    font-size: 24px;
+    color: #483E80;
+}
+
+.swiper {
+    width: 100%;
+    height: 100%;
+    padding: 10px 50px;
+}
+
+.swiper-slide {
+    width: 150px;
+    height: 200px;
+}
