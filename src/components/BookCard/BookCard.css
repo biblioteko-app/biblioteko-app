@@ -1,124 +1,117 @@
 .card {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    color: #483E80;
-    background-color: #d9d9d940;
-    padding: 10px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #483e80;
+  background-color: #d9d9d940;
+  padding: 10px;
 }
-
 
 .book-info {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
-    
 
 .title {
-    font-size: 18px;
-    margin: 5px;
+  font-size: 18px;
+  margin: 5px;
 }
-
 
 .author {
-    font-size: 12px;
-    margin: 5px;
+  font-size: 12px;
+  margin: 5px;
 }
-
 
 .rating {
-    margin: 5px;
+  margin: 5px;
 }
-
 
 .MuiRating-iconFilled {
-    color: #483E80;
+  color: #483e80;
 }
 
-
 .button {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .details {
-    margin: 10px;
-    height: 25px;
-    border-radius: 10px;
-    border-color: #FFFFFF00;
-    background-color: #63C7B2;
-    color: rgb(255, 255, 255);
-    cursor: pointer;
+  margin: 10px;
+  height: 25px;
+  border-radius: 10px;
+  border-color: #ffffff00;
+  background-color: #63c7b2;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
 }
 
 .details:hover {
-    background-color: #553399;
-    transition: 100ms;
+  background-color: #553399;
+  transition: 100ms;
 }
 
 .details:active {
-    background-color: #FFFFFF;
-    border-color: #553399;
-    color: #553399;
-    transition: 0ms;
+  background-color: #ffffff;
+  border-color: #553399;
+  color: #553399;
+  transition: 0ms;
 }
-
 
 .book-wrapper {
-    display: flex;
-    
-    padding: 25px;
-    height: 95%;
+  display: flex;
+
+  padding: 25px;
+  height: 95%;
 }
 
-
 .close-button {
-    height: 30px;
-    width: 30px;
-    font-size: 36px;
-    font-weight: lighter;
-    background-color: #FFFFFF00;
-    color: white;
-    border-radius: 15px;
-    border-color: #FFFFFF00;
-    margin: 20px;
+  height: 30px;
+  width: 30px;
+  font-size: 36px;
+  font-weight: lighter;
+  background-color: #ffffff00;
+  color: white;
+  border-radius: 15px;
+  border-color: #ffffff00;
+  margin: 20px;
 
-    &:hover {
-        color: #63C7B2;
-        transition: 300ms;
-    }
+  &:hover {
+    color: #63c7b2;
+    transition: 300ms;
+  }
 }
 
 .progress {
-    width: 100%;
+  width: 100%;
 }
 
-
 .add-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #833BFF;
-    color: #fff;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
-    z-index: 2;
-  }
-  
-  .add-button:hover {
-    background-color: #9054FF;
-  }
-  
-  .add-icon {
-    color: #fff;
-    width: 35px;
-    height: 35px;
-  }
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #833bff;
+  color: #fff;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+  bottom: 4%; /* Posiciona o botão 4% do fundo */
+  right: 4%; /* Posiciona o botão 4% da direita */
+}
+
+.add-button:hover {
+  background-color: #9054ff;
+}
+
+.add-icon {
+  color: #fff;
+  width: 35px;
+  height: 35px;
+}
