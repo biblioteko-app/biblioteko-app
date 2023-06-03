@@ -1,3 +1,9 @@
 .books {
     margin: 50px 80px;
 }
+
+.container{
+    display: flex;
+    flex-direction: column;
+    
+}
