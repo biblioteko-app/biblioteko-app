@@ -32,17 +32,15 @@ const itemList = [
   { text: 'Login/Sign-up', to: '/LoginSignUp' },
   { text: 'Livros', to: '/books' },
   { text: 'About', to: '/about' },
-  { text: 'AddBook', to: '/AddBook', roles: ['professor'] }, // Item "AddBook" será exibido apenas para usuários com a role "professor"
 ];
 
 const Navbar = ({ user }) => {
   const filteredItemList = itemList.filter(item => {
     if (item.roles && item.roles.includes('professor')) {
-      return user.role === 'professor'; // Exibe o item se o usuário for professor e o item permitir a role "professor"
+      return user && user.role === 'professor'; // Exibe o item se o usuário for professor e o item permitir a role "professor"
     }
     return true; // Exibe o item se não há restrição de roles
   });
-  
 
   return (
     <AppBar component="nav" position="sticky" sx={{ backgroundColor: theme.palette.primary.main }} elevation={0}>

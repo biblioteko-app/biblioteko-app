@@ -1,18 +1,18 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import About from './pages/About';
-import LoginSignUp from './pages/LoginSignUp';
-import AddBook from './pages/AddBook';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer/Footer';
-import Books from './components/Book/Book'; // Importe o módulo 'Books' corretamente
+import React from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Home from './pages/Home'
+import About from './pages/About'
+import LoginSignUp from './pages/LoginSignUp'
+import AddBook from './pages/AddBook'
+import Navbar from './components/Navbar'
+import Footer from './components/Footer/Footer'
+import Books from './components/Book/Book'
 
 function App() {
   // Aqui você pode substituir 'user' pelo objeto que representa o usuário logado
   const user = {
-    role: 'professor',
-  };
+    role: 'professor'
+  }
 
   return (
     <>
@@ -21,7 +21,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path='/books' element={<Books />} />
+          <Route path="/books" element={<Books />} />
           <Route path="/loginSignUp" element={<LoginSignUp />} />
           {user && user.role === 'professor' && (
             <Route path="/addBook" element={<AddBook />} />
@@ -30,7 +30,7 @@ function App() {
       </BrowserRouter>
       <Footer />
     </>
-  );
+  )
 }
 
-export default App;
+export default App

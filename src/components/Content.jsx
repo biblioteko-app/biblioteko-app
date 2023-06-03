@@ -2,10 +2,8 @@ import React from 'react'
 import {
   Grid,
   Typography,
-  IconButton,
   Card,
   CardContent,
-  CardMedia,
   Avatar,
 } from '@mui/material'
 
