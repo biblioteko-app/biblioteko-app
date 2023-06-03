@@ -7,7 +7,7 @@ import AddBook from './pages/AddBook'
 import AddClass from './pages/AddClass'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer/Footer'
-import Books from './components/Book/Book'
+import Books from './pages/Books/Books'
 
 function App() {
   // Aqui você pode substituir 'user' pelo objeto que representa o usuário logado
