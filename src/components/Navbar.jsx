@@ -32,6 +32,7 @@ const itemList = [
   { text: 'Login/Sign-up', to: '/LoginSignUp' },
   { text: 'Livros', to: '/books' },
   { text: 'About', to: '/about' },
+  { text: 'Turmas', to: '/AddClass' },
 ];
 
 const Navbar = ({ user }) => {
