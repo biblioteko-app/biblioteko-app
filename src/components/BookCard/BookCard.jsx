@@ -4,6 +4,9 @@ import { Rating } from '@mui/material';
 import { Link } from 'react-router-dom';
 import Book from '../Book/Book';
 import Modal from '@mui/material/Modal';
+import SuggestBook from '../SuggestBook/SuggestBook';
+
+
 
 export default function BookCard(props) {
 
@@ -19,12 +22,14 @@ export default function BookCard(props) {
           onClose={closing}
           >
         <div className='book-wrapper'>
-          <Book book={book}/>
+          {/* <Book book={book}/> */}
+          <SuggestBook />
           <button className='close-button' onClick={closing}>&#x2715;</button>
         </div>
       </Modal>
     </>
   }
+
 
   return (
     <>        
