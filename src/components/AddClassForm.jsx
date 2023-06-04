@@ -5,7 +5,9 @@ import axios from 'axios'
 const AddBookForm = () => {
   const [buttonHovered, setButtonHovered] = useState(false)
   const [name, setName] = useState('')
-  const [codigo, setCodigo] = useState('')
+  const [ano, setAno] = useState('')
+  const [disciplina, setDisciplina] = useState('')
+  const [foto, setFoto] = useState('')
 
   const handleButtonHover = event => {
     setButtonHovered(event.type === 'mouseenter')
@@ -17,14 +19,16 @@ const AddBookForm = () => {
     try {
       const response = await axios.post('/api/books', {
         name,
-        codigo
+        ano,
+        disciplina,
+        foto
       })
 
       console.log(response.data)
 
       // Limpar os campos do formulário
       setName('')
-      setCodigo('')
+      setAno('')
 
       // Exibir mensagem de sucesso ou redirecionar o usuário
     } catch (error) {
@@ -61,19 +65,61 @@ const AddBookForm = () => {
                 style: styles.label
               }}
             />
-
           </div>
           <div style={isMobile ? styles.formColumnMobile : styles.formColumn}>
-          <TextField
+            <TextField
               margin="normal"
               required
               fullWidth
-              id="codigo"
-              label="Código da turma"
-              name="codigo"
+              id="ano"
+              label="Ano letivo"
+              name="ano"
               autoComplete="off"
-              value={codigo}
-              onChange={event => setCodigo(event.target.value)}
+              value={ano}
+              onChange={event => setAno(event.target.value)}
+              InputProps={{
+                style: styles.input,
+                classes: {
+                  focused: buttonHovered ? 'inputFocused' : ''
+                }
+              }}
+              InputLabelProps={{
+                style: styles.label
+              }}
+            />
+          </div>
+          <div style={isMobile ? styles.formColumnMobile : styles.formColumn}>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="disciplina"
+              label="Disciplina"
+              name="disciplina"
+              autoComplete="off"
+              value={ano}
+              onChange={event => setDisciplina(event.target.value)}
+              InputProps={{
+                style: styles.input,
+                classes: {
+                  focused: buttonHovered ? 'inputFocused' : ''
+                }
+              }}
+              InputLabelProps={{
+                style: styles.label
+              }}
+            />
+          </div>
+          <div style={isMobile ? styles.formColumnMobile : styles.formColumn}>
+            <TextField
+              margin="normal"
+              fullWidth
+              id="foto"
+              label="Foto"
+              name="foto"
+              autoComplete="off"
+              value={ano}
+              onChange={event => setFoto(event.target.value)}
               InputProps={{
                 style: styles.input,
                 classes: {
@@ -110,7 +156,7 @@ const AddBookForm = () => {
         </form>
       </div>
     </div>
-)
+  )
 }
 
 const styles = {
