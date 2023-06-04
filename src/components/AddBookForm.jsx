@@ -42,9 +42,11 @@ const AddBookForm = () => {
       setAccessLink('')
 
       // Exibir mensagem de sucesso ou redirecionar o usuário
+      alert('Livro adicionado com sucesso!')
     } catch (error) {
       console.error(error)
       // Lidar com erros, exibir mensagens de erro ou tomar outras ações adequadas
+      alert('Ocorreu um erro ao adicionar o livro. Por favor, tente novamente.')
     }
   }
 
@@ -226,7 +228,7 @@ const AddBookForm = () => {
         </form>
       </div>
     </div>
-)
+  )
 }
 
 const styles = {
@@ -273,23 +275,12 @@ const styles = {
     boxSizing: 'border-box'
   },
   input: {
-    background: '#f7f7f7',
+    backgroundColor: '#f5f5f5',
     borderRadius: '4px',
-    border: '1px solid #ddd',
-    padding: '8px 12px',
-    transition: 'border-color 0.3s'
+    padding: '10px'
   },
   label: {
-    color: '#888',
     fontSize: '14px'
-  },
-  addButton: {
-    background: '#14192d',
-    color: '#fff',
-    borderRadius: '4px',
-    padding: '12px',
-    transition: 'background 0.3s',
-    marginTop: '20px'
   }
 }
 

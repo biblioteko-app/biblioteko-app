@@ -2,38 +2,48 @@ import React, { useState } from 'react'
 import { TextField, Button, useMediaQuery } from '@mui/material'
 import axios from 'axios'
 
-const AddBookForm = () => {
+const AddClassForm = () => {
   const [buttonHovered, setButtonHovered] = useState(false)
-  const [name, setName] = useState('')
-  const [ano, setAno] = useState('')
-  const [disciplina, setDisciplina] = useState('')
-  const [foto, setFoto] = useState('')
+  const [formData, setFormData] = useState({
+    name: '',
+    ano: '',
+    disciplina: '',
+    foto: ''
+  })
 
   const handleButtonHover = event => {
     setButtonHovered(event.type === 'mouseenter')
+  }
+
+  const handleChange = event => {
+    const { name, value } = event.target
+    setFormData(prevFormData => ({
+      ...prevFormData,
+      [name]: value
+    }))
   }
 
   const handleSubmit = async event => {
     event.preventDefault()
 
     try {
-      const response = await axios.post('/api/books', {
-        name,
-        ano,
-        disciplina,
-        foto
-      })
-
+      const response = await axios.post('/api/class', formData)
       console.log(response.data)
 
       // Limpar os campos do formulário
-      setName('')
-      setAno('')
+      setFormData({
+        name: '',
+        ano: '',
+        disciplina: '',
+        foto: ''
+      })
 
       // Exibir mensagem de sucesso ou redirecionar o usuário
+      alert('Turma adicionado com sucesso!')
     } catch (error) {
       console.error(error)
       // Lidar com erros, exibir mensagens de erro ou tomar outras ações adequadas
+      alert('Ocorreu um erro ao adicionar a turma. Por favor, tente novamente.')
     }
   }
 
@@ -53,8 +63,8 @@ const AddBookForm = () => {
               label="Nome"
               name="name"
               autoComplete="off"
-              value={name}
-              onChange={event => setName(event.target.value)}
+              value={formData.name}
+              onChange={handleChange}
               InputProps={{
                 style: styles.input,
                 classes: {
@@ -72,11 +82,11 @@ const AddBookForm = () => {
               required
               fullWidth
               id="ano"
-              label="Ano letivo"
+              label="Ano"
               name="ano"
               autoComplete="off"
-              value={ano}
-              onChange={event => setAno(event.target.value)}
+              value={formData.ano}
+              onChange={handleChange}
               InputProps={{
                 style: styles.input,
                 classes: {
@@ -97,8 +107,8 @@ const AddBookForm = () => {
               label="Disciplina"
               name="disciplina"
               autoComplete="off"
-              value={ano}
-              onChange={event => setDisciplina(event.target.value)}
+              value={formData.disciplina}
+              onChange={handleChange}
               InputProps={{
                 style: styles.input,
                 classes: {
@@ -118,8 +128,8 @@ const AddBookForm = () => {
               label="Foto"
               name="foto"
               autoComplete="off"
-              value={ano}
-              onChange={event => setFoto(event.target.value)}
+              value={formData.foto}
+              onChange={handleChange}
               InputProps={{
                 style: styles.input,
                 classes: {
@@ -138,7 +148,7 @@ const AddBookForm = () => {
             required
             fullWidth
             sx={{
-              background: '#14192d ',
+              background: '#14192d',
               color: '#fff',
               borderRadius: '4px',
               padding: '12px',
@@ -223,4 +233,4 @@ const styles = {
   }
 }
 
-export default AddBookForm
+export default AddClassForm
