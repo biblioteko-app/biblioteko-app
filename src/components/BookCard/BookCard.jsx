@@ -3,6 +3,9 @@ import './BookCard.css';
 import { Rating } from '@mui/material';
 import Book from '../Book/Book';
 import Modal from '@mui/material/Modal';
+import SuggestBook from '../SuggestBook/SuggestBook';
+
+
 
 export default function BookCard(props) {
   const { book } = props;
@@ -10,6 +13,22 @@ export default function BookCard(props) {
 
   const closing = () => setIsOpen(false);
   const opening = () => setIsOpen(true);
+
+  const modal = () => {
+    return <>
+      <Modal
+          open={ isOpen }
+          onClose={closing}
+          >
+        <div className='book-wrapper'>
+          {/* <Book book={book}/> */}
+          <SuggestBook />
+          <button className='close-button' onClick={closing}>&#x2715;</button>
+        </div>
+      </Modal>
+    </>
+  }
+
 
   return (
     <>
@@ -35,15 +54,7 @@ export default function BookCard(props) {
             Detalhes
           </button>
 
-          <Modal
-            open={isOpen}
-            onClose={closing}
-          >
-            <div className='book-wrapper'>
-              <Book book={book} />
-              <button className='close-button' onClick={closing}>&#x2715;</button>
-            </div>
-          </Modal>
+          { isOpen && modal() }
 
           <div className='progress'>
             <div 
