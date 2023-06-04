@@ -30,10 +30,12 @@ const theme = {
 
 const itemList = [
   { text: 'Home', to: '/' },
-  { text: 'Livros', to: '/books' },
-  { text: 'Sobre', to: '/about' },
   { text: 'Login/Sign-up', to: '/LoginSignUp' },
+  { text: 'Livros', to: '/books' },
+  { text: 'About', to: '/about' },
+  { text: 'Turmas', to: '/AddClass' },
 ];
+
 
 const Navbar = () => {
   return (

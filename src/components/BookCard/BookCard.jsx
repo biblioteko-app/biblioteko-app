@@ -1,16 +1,21 @@
 import React, { useState } from 'react';
 import './BookCard.css';
 import { Rating } from '@mui/material';
-import { Link } from 'react-router-dom';
 import Book from '../Book/Book';
 import Modal from '@mui/material/Modal';
+import SuggestBook from '../SuggestBook/SuggestBook';
+
+
 
 export default function BookCard(props) {
-
-  const book = props['book'];
+  const { book } = props;
   const [isOpen, setIsOpen] = useState(false);
+
   const closing = () => setIsOpen(false);
   const opening = () => setIsOpen(true);
+  
+  let addToSchoolClass = props.addToSchoolClass;
+  let schoolClass = props.schoolClass;
 
   const modal = () => {
     return <>
@@ -19,15 +24,22 @@ export default function BookCard(props) {
           onClose={closing}
           >
         <div className='book-wrapper'>
-          <Book book={book}/>
+          {/* <Book book={book}/> */}
+          <SuggestBook />
           <button className='close-button' onClick={closing}>&#x2715;</button>
         </div>
       </Modal>
     </>
   }
 
+  const addToSchoolClassFunc = () => {
+    console.log(schoolClass)
+    // do something
+  }
+
+
   return (
-    <>        
+    <>
       <div className='card'>
         <div className='book-info'>
           <div className='title'>{book.title}</div>
@@ -40,16 +52,14 @@ export default function BookCard(props) {
               size='small'
               readOnly
               className='rating'
-    
           />
-          
         </div>
         
         <div className='button'>
           <button 
               className='details'
-              onClick={opening}>
-            Detalhes
+              onClick={addToSchoolClass ? addToSchoolClassFunc : opening }>
+            {addToSchoolClass ? "Adicionar" : "Detalhes"}
           </button>
 
           { isOpen && modal() }
@@ -58,20 +68,17 @@ export default function BookCard(props) {
             <div 
                 className='progressBar' 
                 style={{ 
-                  width: (`${book.progress}%`), 
+                  width: `${book.progress}%`, 
                   height: '5px', 
                   backgroundColor: '#6CE44E',
                   margin: 0,
                   padding: 0
                 }}
                 title={`${book.progress}%`}
-            >
-            </div>
+            ></div>
           </div>
         </div>
       </div>
-
-      
     </>
   )
 }

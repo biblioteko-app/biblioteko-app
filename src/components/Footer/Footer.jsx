@@ -7,7 +7,6 @@ import {
 } from '@mui/material'
 import Link from '@mui/material/Link';
 import FooterTitle from './FooterTitle'
-import FooterLink from './FooterLink'
 import GitHubIcon from '@mui/icons-material/GitHub';
 
 const Footer = () => {
