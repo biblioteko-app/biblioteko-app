@@ -1,0 +1,143 @@
+<body>
+    <header>
+        <link rel="stylesheet" type="text/css" href="C:\Users\Ana Beatriz\Desktop\Biblioteko\estilo.css">
+        <div class="profile">
+            <img src="C:\Users\Ana Beatriz\Desktop\Biblioteko\logo.png">
+        </div>
+      <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Livros</a></li>
+            <li><a href="#">Leituras</a></li>
+            <li><a href="#">Turmas</a></li>
+            <li><a href="#">Fulano</a></li>
+            <img src="fotoFulano.png">
+          </ul>
+      </nav>
+    </header>
+    
+    <main>
+        <h1> Edição de Livros </h1>
+        <form>
+            <div class="form-group">
+              <input type="text" id="titulo" name="titulo" required placeholder="Título">
+            </div>
+            <div class="form-group">
+              <input type="text" id="autor" name="autor" required placeholder="Autor">
+            </div>
+            <div class="form-group">
+              <input type="text" id="genero" name="genero" required placeholder="Gênero">
+            </div>
+            <div class="form-group">
+                <input type="number" id="edicao" name="edicao" required placeholder="Edição">
+            </div>
+            <div class="form-group">
+                <input type="text" id="sinopse" name="sinopse" required placeholder="Sinopse">
+            </div>
+            <div class="form-group">
+                <input type="number" id="qntpaginas" name="qntpaginas" required placeholder="Quantidade de páginas">
+            </div>
+            <div class="form-group">
+                <input type="link" id="linkacesso" name="linkacesso" required placeholder="Link de acesso">
+            </div>
+            <button type="cancel">Cancelar</button> 
+            <button type="submit">Confirma</button>
+        </form>
+    </main>
+
+    <style>
+      * {
+        font-family: "Roboto", sans-serif;
+        margin: 0;
+      }
+
+      header {
+        background-color: #ffffff;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        }
+
+        nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        }
+
+        nav li {
+        margin-right: 10px;
+        }
+
+        nav a {
+        text-decoration: none;
+        color: #333;
+        padding: 5px 10px;
+        }
+
+        .profile {
+        margin-left: 10px;
+        }
+
+        .profile img {
+        width: 80px;
+        height: 40px;
+        }
+
+        .form-group {
+        margin-bottom: 20px;
+        }
+
+        label {
+        display: block;
+        margin-bottom: 5px;
+        }
+
+        input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        }
+
+        button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        }
+
+        body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        }
+
+        input[type="checkbox"] {
+        display: none;
+        }
+
+        .checkbox-label {
+        display: inline-block;
+        padding: 5px 10px;
+        background-color: #f1f1f1;
+        border-radius: 4px;
+        cursor: pointer;
+        }
+
+        .checkbox-label.checked {
+        background-color: #007bff;
+        color: #fff;
+        }
+    </style>
+  </body>
