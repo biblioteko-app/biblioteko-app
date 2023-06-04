@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect, useRef, useState } from 'react'
 import './SuggestBook.css';
 import BookCard from '../BookCard/BookCard';
+import BooksCarousel from '../BooksCarousel/BooksCarousel';
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -19,44 +20,29 @@ export default function SuggestBook(props) {
     const schoolClassId = props.schoolClassId;
 
     const [books, setBooks] = useState([])
-    const [bookCards, setBookCards] = useState([])
+    const [inputValue, setInputValue] = useState("")
+
+    const handleInput = (e) => {
+        setInputValue(e.target.value);
+    }
 
     useEffect(() => {
         async function b() {
             const books = await getBooks()
-            setBooks(books)
-            const bookcardstemp = []
-            for (let book of books) {
-                bookcardstemp.push(
-                    <div className='bookcard-container'>
-                        <BookCard book={book}/>
-                        <button className='select-button'>Adicionar</button>
-                    </div>
-                )
-            }
-            // setBookCards(books.map(book => {
-            //     <li>
-            //         <div className='bookcard-container'>
-            //             <BookCard book={book}/>
-            //             <button className='select-button'>Adicionar</button>
-            //         </div>
-            //     </li>
-            // }));
-            console.log(books)
-            
-            console.log(bookcardstemp)   
+            setBooks(books);
         }
         b();
-    }, [])
+    }, [inputValue])
     
     // console.log(bookCards)
 
     return (
         <div className='main-suggest-container'>
             <div className='suggest-container'>
-                <input type="text" className='search-input'/>
+                <input type="text" className='search-input' onChange={handleInput} value={inputValue}/>
                 <div className='search-result'>
-                    <Swiper
+                <BooksCarousel title="Resultado:" books={books} addToSchoolClass={true} schoolClass={12345}/>
+                    {/* <Swiper
                         direction={"vertical"}
                         slidesPerView={"auto"}
                         freeMode={true}
@@ -66,11 +52,16 @@ export default function SuggestBook(props) {
                         className="mySwiper"
                     >
                         <SwiperSlide>
-                            <ul>
-                                {bookCards}
-                            </ul>
+                            {books.map(book => {
+                                return (
+                                    <div className='bookcard-container'>
+                                        <BookCard book={book} noDetails={true}/>
+                                        <button className='select-button'>Adicionar</button>
+                                    </div>
+                                )
+                            })}
                         </SwiperSlide>
-                    </Swiper>
+                    </Swiper> */}
                 </div>
             </div>
         </div>

@@ -1,221 +1,77 @@
-import React, { useEffect, useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/swiper-bundle.min.css';
-import './BooksCarousel.css';
-import { Navigation } from 'swiper';
-import BookCard from '../BookCard/BookCard';
-import { getBooks } from '../../services/BookService';
+import React from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react'
+
+import 'swiper/css'
+import 'swiper/css/grid'
+import 'swiper/css/pagination'
+import 'swiper/css/navigation'
+import './BooksCarousel.css'
+
+import { Pagination, Navigation } from 'swiper'
+import BookCard from '../BookCard/BookCard'
+import { getBooks } from '../../services/BookService'
 
 export default function BooksCarousel(options) {
+  const [slidesPerView, setSlidesPerView] = useState(0);
+  const carouselRef = useRef();
 
-  
-  const slidesPerView = Math.round(window.innerWidth / 175 )
-
-  const [ setBooks] = useState([]);
-
-  useEffect(() => { 
-    async function b() { 
-      const books = await getBooks();
-      setBooks(books);
+  useEffect(
+    () => {
+      setSlidesPerView(Math.round((window.innerWidth * 0.8) / 175))
     }
-  })
+  )
 
+  // Math.round(carouselRef.current.offsetWidth / 175)
+  console.log(slidesPerView)
+  const rows = Number(options['rows'])
+  
+  
+
+  const books = options.books;
+  const addToSchoolClass = options.addToSchoolClass;
+  const schoolClass = options.schoolClass;
+
+  // useEffect(() => {
+  //   async function b() {
+  //     const books = await getBooks()
+  //     setBooks(books)
+  //   }
+  // })
 
   return (
     <>
-      <div className='title'>{ options['title'] }</div>
-      <div className='carousel-container'></div>
-      <div className='carousel'>
+      <div className="title">{options['title']}</div>
+      <div className="carousel">
         <Swiper
-            slidesPerView={ slidesPerView }
-            spaceBetween={15}
-            navigation={true}
-            modules={[Navigation]}
-            className='mySwiper'
+          slidesPerView={"auto"}
+          spaceBetween={15}
+          navigation={true}
+          modules={[Navigation]}
+          className="mySwiper"
         >
-          <SwiperSlide>
-            <BookCard book=
-              {{ 
-                title: "A bala de prata", 
-                author: "Rohit", 
-                progress: 70, 
-                rating: 2.4,
-                edition: "1.0",
-                gender: "Ficção",
-                synopsis: "Muitas pessoas perguntam se existe bala de prata, e eu estou aqui para dizer-te que não há bala de prata!",
-                pageNumber: 10
-              }}/>
-          </SwiperSlide>
-          
-          <SwiperSlide>
-            <BookCard book=
-              {{ 
-                title: "A bala de prata", 
-                author: "Rohit", 
-                progress: 70, 
-                rating: 2.4,
-                edition: "1.0",
-                gender: "Ficção",
-                synopsis: "Muitas pessoas perguntam se existe bala de prata, e eu estou aqui para dizer-te que não há bala de prata!",
-                pageNumber: 10
-              }}/>
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <BookCard book=
-              {{ 
-                title: "A bala de prata", 
-                author: "Rohit", 
-                progress: 70, 
-                rating: 2.4,
-                edition: "1.0",
-                gender: "Ficção",
-                synopsis: "Muitas pessoas perguntam se existe bala de prata, e eu estou aqui para dizer-te que não há bala de prata!",
-                pageNumber: 10
-              }}/>
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <BookCard book=
-              {{ 
-                title: "A bala de prata", 
-                author: "Rohit", 
-                progress: 70, 
-                rating: 2.4,
-                edition: "1.0",
-                gender: "Ficção",
-                synopsis: "Muitas pessoas perguntam se existe bala de prata, e eu estou aqui para dizer-te que não há bala de prata!",
-                pageNumber: 10
-              }}/>
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <BookCard book=
-              {{ 
-                title: "A bala de prata", 
-                author: "Rohit", 
-                progress: 70, 
-                rating: 2.4,
-                edition: "1.0",
-                gender: "Ficção",
-                synopsis: "Muitas pessoas perguntam se existe bala de prata, e eu estou aqui para dizer-te que não há bala de prata!",
-                pageNumber: 10
-              }}/>
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <BookCard book=
-              {{ 
-                title: "A bala de prata", 
-                author: "Rohit", 
-                progress: 70, 
-                rating: 2.4,
-                edition: "1.0",
-                gender: "Ficção",
-                synopsis: "Muitas pessoas perguntam se existe bala de prata, e eu estou aqui para dizer-te que não há bala de prata!",
-                pageNumber: 10
-              }}/>
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <BookCard book=
-              {{ 
-                title: "A bala de prata", 
-                author: "Rohit", 
-                progress: 70, 
-                rating: 2.4,
-                edition: "1.0",
-                gender: "Ficção",
-                synopsis: "Muitas pessoas perguntam se existe bala de prata, e eu estou aqui para dizer-te que não há bala de prata!",
-                pageNumber: 10
-              }}/>
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <BookCard book=
-              {{ 
-                title: "A bala de prata", 
-                author: "Rohit", 
-                progress: 70, 
-                rating: 2.4,
-                edition: "1.0",
-                gender: "Ficção",
-                synopsis: "Muitas pessoas perguntam se existe bala de prata, e eu estou aqui para dizer-te que não há bala de prata!",
-                pageNumber: 10
-              }}/>
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <BookCard book=
-              {{ 
-                title: "A bala de prata", 
-                author: "Rohit", 
-                progress: 70, 
-                rating: 2.4,
-                edition: "1.0",
-                gender: "Ficção",
-                synopsis: "Muitas pessoas perguntam se existe bala de prata, e eu estou aqui para dizer-te que não há bala de prata!",
-                pageNumber: 10
-              }}/>
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <BookCard book=
-              {{ 
-                title: "A bala de prata", 
-                author: "Rohit", 
-                progress: 70, 
-                rating: 2.4,
-                edition: "1.0",
-                gender: "Ficção",
-                synopsis: "Muitas pessoas perguntam se existe bala de prata, e eu estou aqui para dizer-te que não há bala de prata!",
-                pageNumber: 10
-              }}/>
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <BookCard book=
-              {{ 
-                title: "A bala de prata", 
-                author: "Rohit", 
-                progress: 70, 
-                rating: 2.4,
-                edition: "1.0",
-                gender: "Ficção",
-                synopsis: "Muitas pessoas perguntam se existe bala de prata, e eu estou aqui para dizer-te que não há bala de prata!",
-                pageNumber: 10
-              }}/>
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <BookCard book=
-              {{ 
-                title: "A bala de prata", 
-                author: "Rohit", 
-                progress: 70, 
-                rating: 2.4,
-                edition: "1.0",
-                gender: "Ficção",
-                synopsis: "Muitas pessoas perguntam se existe bala de prata, e eu estou aqui para dizer-te que não há bala de prata!",
-                pageNumber: 10
-              }}/>
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <BookCard book=
-              {{ 
-                title: "A bala de prata", 
-                author: "Rohit", 
-                progress: 70, 
-                rating: 2.4,
-                edition: "1.0",
-                gender: "Ficção",
-                synopsis: "Muitas pessoas perguntam se existe bala de prata, e eu estou aqui para dizer-te que não há bala de prata!",
-                pageNumber: 10
-              }}/>
-          </SwiperSlide>
-
-
+          {
+            books.map(book => {
+              return (
+                <SwiperSlide>
+                  <BookCard
+                    book={{
+                      title: book.title,
+                      author: book.author,
+                      progress: book.progress,
+                      rating: book.rating,
+                      edition: book.edition,
+                      gender: book.gender,
+                      synopsis: book.synopsis,
+                      pageNumber: book.pageNumber
+                    }}
+                    addToSchoolClass={addToSchoolClass}
+                    schoolClass={schoolClass}
+                  />
+                </SwiperSlide>      
+              )
+            })
+          }
         </Swiper>
       </div>
     </>

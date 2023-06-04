@@ -1,7 +1,7 @@
 import React from 'react';
 import { AppBar, Toolbar, Box, List, ListItem, Typography, styled, ListItemButton, ListItemText } from '@mui/material';
 import { Link } from 'react-router-dom';
-import BImage from '../assets/B.png';
+import BImage from '../assets/Logo.svg';
 import DrawerItem from './DrawerItem';
 
 const StyledToolbar = styled(Toolbar)({
@@ -19,7 +19,8 @@ const ListMenu = styled(List)(({ theme }) => ({
 const theme = {
   palette: {
     primary: {
-      main: '#5D6FC1',
+      main: '#483E80',
+      alternative: '#FFFFFF'
     },
     secondary: {
       main: '#00C6BA',
@@ -35,22 +36,16 @@ const itemList = [
   { text: 'Turmas', to: '/AddClass' },
 ];
 
-const Navbar = ({ user }) => {
-  const filteredItemList = itemList.filter(item => {
-    if (item.roles && item.roles.includes('professor')) {
-      return user && user.role === 'professor'; // Exibe o item se o usuário for professor e o item permitir a role "professor"
-    }
-    return true; // Exibe o item se não há restrição de roles
-  });
 
+const Navbar = () => {
   return (
-    <AppBar component="nav" position="sticky" sx={{ backgroundColor: theme.palette.primary.main }} elevation={0}>
+    <AppBar component="nav" position="sticky" sx={{ backgroundColor: theme.palette.primary.alternative }} elevation={0}>
       <StyledToolbar>
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <img src={BImage} alt="B" style={{ width: '40px', marginRight: '-7px', marginBottom: '15px' }} />
-          <Typography variant="h6" component="h2" sx={{ fontStyle: 'oblique' }}>
+          <img src={BImage} alt="B" style={{ width: '200px', marginRight: '-7px', marginBottom: '0px' }} />
+          {/* <Typography variant="h6" component="h2" sx={{ fontStyle: 'oblique' }}>
             iblioteko
-          </Typography>
+          </Typography> */}
         </Box>
 
         <Box sx={{ display: { xs: 'block', sm: 'none' } }}>
@@ -58,13 +53,13 @@ const Navbar = ({ user }) => {
         </Box>
 
         <ListMenu>
-          {filteredItemList.map((item) => (
+          {itemList.map((item) => (
             <ListItem key={item.text}>
               <ListItemButton
                 component={Link}
                 to={item.to}
                 sx={{
-                  color: '#fff',
+                  color: theme.palette.primary.main,
                   backgroundColor: 'transparent',
                   borderRadius: '2px',
                   position: 'relative',

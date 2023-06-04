@@ -13,6 +13,9 @@ export default function BookCard(props) {
 
   const closing = () => setIsOpen(false);
   const opening = () => setIsOpen(true);
+  
+  let addToSchoolClass = props.addToSchoolClass;
+  let schoolClass = props.schoolClass;
 
   const modal = () => {
     return <>
@@ -27,6 +30,11 @@ export default function BookCard(props) {
         </div>
       </Modal>
     </>
+  }
+
+  const addToSchoolClassFunc = () => {
+    console.log(schoolClass)
+    // do something
   }
 
 
@@ -50,8 +58,8 @@ export default function BookCard(props) {
         <div className='button'>
           <button 
               className='details'
-              onClick={opening}>
-            Detalhes
+              onClick={addToSchoolClass ? addToSchoolClassFunc : opening }>
+            {addToSchoolClass ? "Adicionar" : "Detalhes"}
           </button>
 
           { isOpen && modal() }
