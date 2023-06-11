@@ -1,0 +1,67 @@
+#form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+#form input {
+    width: 400px;
+    height: 45.26px;
+    font-size: 20px;
+    background: #F7F7F7;
+    box-shadow: inset -2px -2px 4px #FFFFFF, inset 2px 2px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 13px;
+    text-indent: 50px;
+    margin-bottom: 0px !important;
+}
+
+.icon-field-box {
+    display: flex;
+    align-items: center;
+}
+
+.icon-field-box svg {
+    position: absolute;
+    fill: #C3C3C3;
+    margin: 13px;
+    padding-bottom: 2px;
+}
+
+.box-botoes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.box-botoes button {
+    width: fit-content;
+    padding: 11px 26px;
+    border-radius: 13px;
+    filter: drop-shadow(-4px -4px 4px #FFFFFF) drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+button {
+    background-color: #63C7B2;
+}
+
+.MuiOutlinedInput-root .MuiTextField-root {
+    border-radius: 13px !important;
+    border: none;
+    filter: drop-shadow(-4px -4px 4px #FFFFFF) drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+#erro {
+    display: none;
+    align-items: center;
+    width: 400px;
+    height: 45px;
+    padding-left: 19px;
+    background-color: #F0C7C7;
+    border-radius: 13px;
+    filter: drop-shadow(-3px -3px 4px #FFFFFF) drop-shadow(3px 3px 4px rgba(0, 0, 0, 0.25));
+}
+
+#erro p {
+    color: #921E1E !important;
+}
