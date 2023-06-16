@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Home from './pages/Home'
+import LandingPage from './pages/LandingPage'
+import Home from './pages/Home/home'
 import About from './pages/About'
 import LoginSignUp from './pages/LoginSignUp'
 import AddBook from './pages/AddBook'
@@ -11,6 +12,7 @@ import Books from './pages/Books/Books'
 
 function App() {
   // Aqui você pode substituir 'user' pelo objeto que representa o usuário logado
+  const [logged, setLogged] = useState(true) 
   const user = {
     role: 'professor'
   }
@@ -20,7 +22,7 @@ function App() {
       <BrowserRouter>
         <Navbar user={user} />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={logged ? <Home />: <LandingPage />} />
           <Route path="/about" element={<About />} />
           <Route path="/books" element={<Books />} />
           <Route path="/turmas" element={<AddClass />} />
