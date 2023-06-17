@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import LandingPage from './pages/LandingPage'
-import Home from './pages/Home/home'
+import Home from './pages/Home/Home'
 import About from './pages/About'
 import LoginSignUp from './pages/LoginSignUp'
 import AddBook from './pages/AddBook'
