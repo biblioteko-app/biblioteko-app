@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quadro Dividido</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="script.js"></script>
+  <nav>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Livros</a></li>
+        <li><a href="#">Leituras</a></li>
+        <li><a href="#">Turmas</a></li>
+        <li><a href="#">Fulano</a></li>
+        <img src="src\assets\fotoFulano.png">
+      </ul>
+  </nav>
+</head>
+<body>
+  <div id="parte1">
+    <h3>Turma<h3>
+    <h2>1° "A" Jogos Digitais</h2>
+    <h3>Disciplina<h3>
+    <h2>Português</h2>
+    <h3>Ano<h3>
+    <h2>2023</h2>
+  </div>
+  <div id="parte2">
+    <h4>Professor<h4>
+    <h2>Erick Silva</h2>
+    <img src="src\assets\fotoProfessor.png">
+  </div>
+</body>
+</html>
+
+<style>
+    body {
+  margin: 0;
+  padding: 0;
+}
+
+#parte1, #parte2 {
+  width: 50%;
+  height: 180px;
+  text-align: center;
+  background-color: #e0e0e0;
+  float: left;
+
+}
+
+#parte1 {
+  background-color: #e0e0e0;
+}
+
+#parte2 {
+  background-color: #e0e0e0;
+}
+
+* {
+        font-family: "Roboto", sans-serif;
+        margin: 0;
+      }
+
+      header {
+        background-color: #ffffff;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        }
+
+        nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        }
+
+        nav li {
+        margin-right: 10px;
+        }
+
+        nav a {
+        text-decoration: none;
+        color: #333;
+        padding: 5px 10px;
+        }
+
+    h2{
+        font-size: 18px;
+        color: #483E80;
+        text-align: left;
+        /* topo | direita | inferior | esquerda */
+        margin: 2px 1em 15px 20px;
+    }
+
+    h3{
+        font-size: 15px;
+        color: #7a7a7c;
+        text-align: left;
+        margin-left: 20px;
+    }
+
+    h4{
+        font-size: 15px;
+        color: #7a7a7c;
+        text-align: left;
+        /* topo | direita | inferior | esquerda */
+        margin: 20px 1em 2px 20px;
+    }
+
+
+</style>

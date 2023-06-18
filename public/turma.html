@@ -23,11 +23,18 @@
             <div class="turma-foto">
               <img src="C:\Users\Ana Beatriz\Desktop\Biblioteko-Git\biblioteko-app\src\assets\turma.png" alt="Foto da Turma">
             </div>
-            <div class="turma-dados">
-              <h1>1° "A" Jogos Digitais</h1>
-              <p>Disciplina: Português</p>
-              <p>Ano: 2023</p>
-              <p>Professor: Fulano</p>
+            <div id="parte1">
+              <h3>Turma<h3>
+              <h2>1° "A" Jogos Digitais</h2>
+              <h3>Disciplina<h3>
+              <h2>Português</h2>
+              <h3>Ano<h3>
+              <h2>2023</h2>
+            </div>
+            <div id="parte2">
+              <h4>Professor<h4>
+              <h2>Erick Silva</h2>
+              <img src="src\assets\fotoProfessor.png">
             </div>
           </div>
         <div class="livros-carousel">
@@ -42,7 +49,6 @@
             <div class="carousel-item">
               <img src="livro3.jpg" alt="Livro 3">
             </div>
-            <!-- Adicione mais livros aqui -->
           </div>
         </div>
         <div class="alunos-carousel">
@@ -60,7 +66,6 @@
               <img src="aluno3.jpg" alt="Aluno 3">
               <p>Aluno 3</p>
             </div>
-            <!-- Adicione mais alunos aqui -->
           </div>
         </div>
       </div>
@@ -166,5 +171,46 @@
           height: 100%;
           object-fit: cover;
         }
+
+        
+#parte1, #parte2 {
+  width: 50%;
+  height: 180px;
+  text-align: center;
+  background-color: #e0e0e0;
+  float: left;
+
+}
+
+#parte1 {
+  background-color: #e0e0e0;
+}
+
+#parte2 {
+  background-color: #e0e0e0;
+}
+
+h2{
+        font-size: 18px;
+        color: #483E80;
+        text-align: left;
+        /* topo | direita | inferior | esquerda */
+        margin: 2px 1em 15px 20px;
+    }
+
+    h3{
+        font-size: 15px;
+        color: #7a7a7c;
+        text-align: left;
+        margin-left: 20px;
+    }
+
+    h4{
+        font-size: 15px;
+        color: #7a7a7c;
+        text-align: left;
+        /* topo | direita | inferior | esquerda */
+        margin: 20px 1em 2px 20px;
+    }
     </style>
   </body>

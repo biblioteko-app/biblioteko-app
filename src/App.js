@@ -26,14 +26,4 @@ function App() {
   );
 }
 
-function App() {
-  return (
-    <div className="App">
-      <ListaLivros />
-    </div>
-  );
-}
-
-export default App;
-
 export default App;
