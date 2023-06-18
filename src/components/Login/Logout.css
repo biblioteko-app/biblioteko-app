@@ -1,0 +1,14 @@
+.box {
+    display: flex;
+    padding: 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+#logout {
+    width: fit-content;
+    padding: 11px 26px;
+    border-radius: 13px;
+    color: #FFFFFF;
+    filter: drop-shadow(-4px -4px 4px #FFFFFF) drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+}
