@@ -3,19 +3,21 @@ import BooksCarousel from '../../components/BooksCarousel/BooksCarousel'
 import './Books.css'
 import { Link } from 'react-router-dom'
 import { MdAdd } from 'react-icons/md'
-import { getReadingList, getStarredBooks } from '../../services/BookService'
+import { getAllMyBooks, getReadingList, getStarredBooks } from '../../services/BookService'
 
 const Books = ({ user }) => {
 
   const [readingList, setReadingList] = useState([])
   const [starredBooks, setStarredBooks] = useState([])
+  const [myBooks, setMyBooks] = useState([])
 
   useEffect(
     () => {
       setReadingList(getReadingList(user.user.id));
       setStarredBooks(getStarredBooks(user.user.id));
-      console.log(readingList)
-      console.log(starredBooks)
+      setMyBooks(getAllMyBooks(user.user.id));
+      // console.log(readingList)
+      // console.log(starredBooks)
     }, []
   )
 
@@ -23,12 +25,18 @@ const Books = ({ user }) => {
     <>
       <div className="container">
         <div className="books">
-          <BooksCarousel title="Livros favoritados" books={readingList}/>
+          <BooksCarousel title="Livros favoritados" books={readingList} editable={false} user={user}/>
         </div>
 
         <div className="books">
-          <BooksCarousel title="Leituras em andamento" books={starredBooks}/>
+          <BooksCarousel title="Leituras em andamento" books={starredBooks} editable={false} user={user}/>
         </div>
+
+        { user.userDetails.role === "PROFESSOR" &&
+          <div className="books">
+            <BooksCarousel title="Meus livros" books={myBooks} editable={true} user={user}/>
+          </div>
+        }
 
         { user.userDetails.role === "PROFESSOR" &&
           <div className="add-button">

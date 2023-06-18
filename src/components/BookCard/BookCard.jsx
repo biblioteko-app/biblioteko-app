@@ -9,6 +9,10 @@ import SuggestBook from '../SuggestBook/SuggestBook';
 
 export default function BookCard(props) {
   const { book } = props;
+  const user = props.user;
+  const editable = props.editable;
+
+
   const [isOpen, setIsOpen] = useState(false);
 
   const closing = () => setIsOpen(false);
@@ -24,7 +28,7 @@ export default function BookCard(props) {
           onClose={closing}
           >
         <div className='book-wrapper'>
-          <Book book={book}/>
+          <Book book={book} editable={editable} user={user} />
           {/* <SuggestBook /> */}
           <button className='close-button' onClick={closing}>&#x2715;</button>
         </div>

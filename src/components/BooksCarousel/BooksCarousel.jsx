@@ -14,6 +14,9 @@ import { getBooks } from '../../services/BookService'
 
 export default function BooksCarousel(options) {
   const books = options.books;
+  const editable = options.editable;
+  const user = options.user;
+
   console.log(books instanceof Array);
   const addToSchoolClass = options.addToSchoolClass;
   const schoolClass = options.schoolClass;
@@ -55,7 +58,6 @@ export default function BooksCarousel(options) {
               id: book.id,
               title: book.title,
               author: book.author,
-              progress: book.progress,
               rating: book.rating,
               edition: book.edition,
               gender: book.genre,
@@ -67,6 +69,8 @@ export default function BooksCarousel(options) {
             }}
             addToSchoolClass={addToSchoolClass}
             schoolClass={schoolClass}
+            editable={editable}
+            user={user}
           />
         </SwiperSlide>   
       )

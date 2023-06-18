@@ -58,7 +58,7 @@ const Home = ({ user }) => {
 
 
         <div className="books">
-          <BooksCarousel title="Catálogo" books={booksTest}/>
+          <BooksCarousel title="Catálogo" books={booksTest} user={user} editable={false}/>
         </div>
       </div>
     </>

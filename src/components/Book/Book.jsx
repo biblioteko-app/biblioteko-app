@@ -1,15 +1,64 @@
 import React, { useState } from 'react'
 import './Book.css'
 import { Rating } from '@mui/material'
+import authentication from '../../services/authentication'
+import { unstarBook, addBookToReadingList, starBook, editBook } from '../../services/BookService'
+import { useNavigate } from 'react-router-dom'
 
 export default function Books(props) {
+  const navigate = useNavigate();
+
   let book = props.book
+  let [finalBook, setFinalBook] = useState(book)
+  let editable = props.editable
+  let user = props.user
+
+  console.log(editable)
 
   const [starred, setStarred] = useState(false)
 
   const handleStarred = () => {
     setStarred(!starred)
+    let r = false;
+    if (starred === true) {
+      r = starBook(user.user.id, book.id)
+    } else {
+      r = unstarBook(user.user.id, book.id)
+    }
+    setStarred(r ? starred : !starred)
   }
+
+  const [title, setTitle] = useState(book.title);
+  const [gender, setGender] = useState(book.gender);
+  const [pageNumber, setPageNumber] = useState(book.pageNumber ? book.pageNumber : 0);
+  const [author, setAuthor] = useState(book.author);
+  const [edition, setEdition] = useState(book.edition);
+  const [synopsis, setSynopsis] = useState(book.synopsis);
+  // const [photo, setPhoto] = useState(book.title);
+  const [accessLink, setAccessLink] = useState(book.accessLink);
+
+  const [editMode, setEditMode] = useState(false);
+
+
+  const handleEditMode = () => {
+    setEditMode(!editMode);
+    if (editMode === false) {
+      let b = {
+        title: title,
+        author: author,
+        gender: gender,
+        edition: edition,
+        synopsis: synopsis,
+        photo: book.photo,
+        pages: pageNumber,
+        accessLink: accessLink,
+      }
+
+      editBook(user.user.id, b, book.id);
+      navigate("/books")
+    }
+  }
+
 
   return (
     <>
@@ -17,17 +66,20 @@ export default function Books(props) {
         <div className="wrapper">
           <div className="info">
             <div className="label">Título:</div>
-            <div className="value">{book.title}</div>
+            {/* <div className="value">{title}</div> */}
+            <input className="value" type="text" value={title} onChange={(e) => { setTitle(e.target.value) }} disabled={!editMode}/>
           </div>
 
           <div className="info">
             <div className="label">Gênero:</div>
-            <div className="value">{book.gender}</div>
+            {/* <div className="value">{book.gender}</div> */}
+            <input className="value" type="text" value={gender} onChange={(e) => { setGender(e.target.value) }} disabled={!editMode}/>
           </div>
 
           <div className="info">
             <div className="label">Número de páginas:</div>
-            <div className="value">{book.pageNumber}</div>
+            {/* <div className="value">{book.pageNumber}</div> */}
+            <input className="value" type="number" value={pageNumber} onChange={(e) => { setPageNumber(Number(e.target.value)) }} disabled={!editMode}/>
           </div>
 
           <div className="starred">
@@ -47,12 +99,14 @@ export default function Books(props) {
 
           <div className="info">
             <div className="label">Autor:</div>
-            <div className="value">{book.author}</div>
+            {/* <div className="value">{book.author}</div> */}
+            <input className="value" type="text" value={author} onChange={(e) => { setAuthor(e.target.value) }} disabled={!editMode}/>
           </div>
 
           <div className="info">
-            <div className="label">EdiÃ§Ã£o:</div>
-            <div className="value">{book.edition}</div>
+            <div className="label">Edição:</div>
+            {/* <div className="value">{book.edition}</div> */}
+            <input className="value" type="number" value={edition} onChange={(e) => { setEdition(Number(e.target.value)) }} disabled={!editMode}/>
           </div>
 
           <div className="synopsis">
@@ -73,14 +127,18 @@ export default function Books(props) {
               />
 
               <div className="buttons">
-                <button className="list-add">Adicionar à lista</button>
+                <button className="list-add" onClick={() => { addBookToReadingList(user.user.id, book.id) }}>
+                  Adicionar à lista
+                </button>
               </div>
             </div>
 
-            <div className="actions">
-              <button className="action-buttons">&#x1F5D1;</button>
-              <button className="action-buttons">&#x1F589;</button>
-            </div>
+            { editable &&
+              <div className="actions"> 
+                <button className="action-buttons">&#x1F5D1;</button>
+                <button className="action-buttons">&#x1F589;</button>
+              </div>
+            }
           </div>
         </div>
       </div>
