@@ -1,0 +1,145 @@
+<body>
+    <header>
+        <link rel="stylesheet" type="text/css" href="C:\Users\Ana Beatriz\Desktop\Biblioteko\estilo.css">
+        <div class="profile">
+            <img src="C:\Users\Ana Beatriz\Desktop\Biblioteko\logo.png">
+        </div>
+      <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Livros</a></li>
+            <li><a href="#">Leituras</a></li>
+            <li><a href="#">Turmas</a></li>
+            <li><a href="#">Fulano</a></li>
+            <img src="fotoFulano.png">
+          </ul>
+      </nav>
+    </header>
+    
+    <main>
+        <div class="container">
+          <h1>Turma do Ensino Médio - Matemática</h1>
+          <p>Professor: João da Silva</p>
+          <div class="turma-foto">
+            <img src="turma.jpg" alt="Foto da Turma">
+          </div>
+          <div class="livros-carousel">
+            <h2>Livros Recomendados</h2>
+            <div class="carousel">
+              <div class="carousel-item">
+                <img src="livro1.jpg" alt="Livro 1">
+              </div>
+              <div class="carousel-item">
+                <img src="livro2.jpg" alt="Livro 2">
+              </div>
+              <div class="carousel-item">
+                <img src="livro3.jpg" alt="Livro 3">
+              </div>
+              <!-- Adicione mais livros aqui -->
+            </div>
+          </div>
+        </div>
+        
+        <script src="script.js"></script>
+    </main>
+
+    <style>
+      * {
+        font-family: "Roboto", sans-serif;
+        margin: 0;
+      }
+
+      header {
+        background-color: #ffffff;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        }
+
+        nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        }
+
+        nav li {
+        margin-right: 10px;
+        }
+
+        nav a {
+        text-decoration: none;
+        color: #333;
+        padding: 5px 10px;
+        }
+
+        .profile {
+        margin-left: 10px;
+        }
+
+        .profile img {
+        width: 80px;
+        height: 40px;
+        }
+
+        .form-group {
+        margin-bottom: 20px;
+        }
+
+        label {
+        display: block;
+        margin-bottom: 5px;
+        }
+
+        body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        }
+
+        .container {
+          max-width: 800px;
+          margin: 0 auto;
+          padding: 20px;
+          text-align: center;
+        }
+
+        .turma-foto img {
+          width: 50px;
+          height: 50px;
+          object-fit: cover;
+          border-radius: 50%;
+          margin-top: 20px;
+        }
+
+        .livros-carousel {
+          margin-top: 40px;
+        }
+
+        .carousel {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .carousel-item {
+          width: 200px;
+          height: 300px;
+          margin: 0 10px;
+        }
+
+        .carousel-item img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+    </style>
+  </body>
