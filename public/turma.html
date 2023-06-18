@@ -11,36 +11,61 @@
             <li><a href="#">Leituras</a></li>
             <li><a href="#">Turmas</a></li>
             <li><a href="#">Fulano</a></li>
-            <img src="fotoFulano.png">
+            <img src="src\assets\fotoFulano.png">
           </ul>
       </nav>
     </header>
     
     <main>
+      <div class="container">
         <div class="container">
-          <h1>Turma do Ensino Médio - Matemática</h1>
-          <p>Professor: João da Silva</p>
-          <div class="turma-foto">
-            <img src="turma.jpg" alt="Foto da Turma">
-          </div>
-          <div class="livros-carousel">
-            <h2>Livros Recomendados</h2>
-            <div class="carousel">
-              <div class="carousel-item">
-                <img src="livro1.jpg" alt="Livro 1">
-              </div>
-              <div class="carousel-item">
-                <img src="livro2.jpg" alt="Livro 2">
-              </div>
-              <div class="carousel-item">
-                <img src="livro3.jpg" alt="Livro 3">
-              </div>
-              <!-- Adicione mais livros aqui -->
+          <div class="turma-info">
+            <div class="turma-foto">
+              <img src="C:\Users\Ana Beatriz\Desktop\Biblioteko-Git\biblioteko-app\src\assets\turma.png" alt="Foto da Turma">
+            </div>
+            <div class="turma-dados">
+              <h1>1° "A" Jogos Digitais</h1>
+              <p>Disciplina: Português</p>
+              <p>Ano: 2023</p>
+              <p>Professor: Fulano</p>
             </div>
           </div>
+        <div class="livros-carousel">
+          <h2>Livros Recomendados</h2>
+          <div class="carousel">
+            <div class="carousel-item">
+              <img src="livro1.jpg" alt="Livro 1">
+            </div>
+            <div class="carousel-item">
+              <img src="livro2.jpg" alt="Livro 2">
+            </div>
+            <div class="carousel-item">
+              <img src="livro3.jpg" alt="Livro 3">
+            </div>
+            <!-- Adicione mais livros aqui -->
+          </div>
         </div>
-        
-        <script src="script.js"></script>
+        <div class="alunos-carousel">
+          <h2>Alunos da Turma</h2>
+          <div class="carousel">
+            <div class="carousel-item">
+              <img src="aluno1.jpg" alt="Aluno 1">
+              <p>Aluno 1</p>
+            </div>
+            <div class="carousel-item">
+              <img src="aluno2.jpg" alt="Aluno 2">
+              <p>Aluno 2</p>
+            </div>
+            <div class="carousel-item">
+              <img src="aluno3.jpg" alt="Aluno 3">
+              <p>Aluno 3</p>
+            </div>
+            <!-- Adicione mais alunos aqui -->
+          </div>
+        </div>
+      </div>
+      
+      <script src="script.js"></script>
     </main>
 
     <style>
@@ -106,7 +131,7 @@
         }
 
         .container {
-          max-width: 800px;
+          max-width: 1000px;
           margin: 0 auto;
           padding: 20px;
           text-align: center;
@@ -131,8 +156,8 @@
         }
 
         .carousel-item {
-          width: 200px;
-          height: 300px;
+          width: 20px;
+          height: 30px;
           margin: 0 10px;
         }
 

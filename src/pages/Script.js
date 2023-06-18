@@ -1,14 +1,16 @@
-// Inicialização do carrossel
-const carousel = document.querySelector('.carousel');
-const carouselItems = document.querySelectorAll('.carousel-item');
+// Inicialização dos carrosséis
+const carouselElements = document.querySelectorAll('.carousel');
 
-let currentIndex = 0;
-const intervalTime = 2000; // Tempo de exibição de cada livro em milissegundos
+carouselElements.forEach(carousel => {
+  const carouselItems = carousel.querySelectorAll('.carousel-item');
+  let currentIndex = 0;
+  const intervalTime = 2000; // Tempo de exibição de cada item em milissegundos
 
-function nextSlide() {
-  carouselItems[currentIndex].classList.remove('active');
-  currentIndex = (currentIndex + 1) % carouselItems.length;
-  carouselItems[currentIndex].classList.add('active');
-}
+  function nextSlide() {
+    carouselItems[currentIndex].classList.remove('active');
+    currentIndex = (currentIndex + 1) % carouselItems.length;
+    carouselItems[currentIndex].classList.add('active');
+  }
 
-setInterval(nextSlide, intervalTime);
+  setInterval(nextSlide, intervalTime);
+});
