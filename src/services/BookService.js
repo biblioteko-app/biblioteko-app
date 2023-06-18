@@ -2,8 +2,9 @@ import axios from 'axios'
 
 const api = axios.create({ baseURL: "http://localhost:8080" })
 
-export async function getBooks() {
-    const res = await api.get('/book')
+export async function getBooks(userId) {
+    const res = await api.get(`/api/books/${userId}`, { withCredentials: true })
+    
     return res.data;
 }
 

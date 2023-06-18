@@ -2,22 +2,30 @@ import React from 'react'
 import BooksCarousel from '../../components/BooksCarousel/BooksCarousel'
 import { useState } from 'react'
 import { useEffect } from 'react'
-import { getReadingList } from '../../services/BookService'
+import { getBooks, getReadingList } from '../../services/BookService'
 
 
 const Home = ({ user }) => {
 
   const [readingList, setReadingList] = useState([])
+  const [catalog, setCatalog] = useState([])
   // const [starredBooks, setStarredBooks] = useState([])
 
   useEffect(
     () => {
       setReadingList(getReadingList(user.user.id));
+      setCatalog(getBooks(user.user.id))
+      catalog.sort((a, b) => {
+        if (a.rating > b.rating) { return 1 }
+        if (a.rating < b.rating) { return -1 }
+        return 0
+      })
       // setStarredBooks(getStarredBooks());
       console.log(readingList)
-      // console.log(starredBooks)
+      console.log(catalog)
     }, []
   )
+
 
   const bookTest = {
     id: 123456789,

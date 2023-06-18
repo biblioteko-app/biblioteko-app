@@ -24,8 +24,8 @@ export default function BookCard(props) {
           onClose={closing}
           >
         <div className='book-wrapper'>
-          {/* <Book book={book}/> */}
-          <SuggestBook />
+          <Book book={book}/>
+          {/* <SuggestBook /> */}
           <button className='close-button' onClick={closing}>&#x2715;</button>
         </div>
       </Modal>
