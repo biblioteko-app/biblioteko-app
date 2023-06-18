@@ -8,6 +8,7 @@ import LoginSignUp from './pages/LoginSignUp';
 //componentes
 import Navbar from './components/Navbar';
 import Footer from './components/Footer/Footer';
+import ListaLivros from './ListaLivros';
 
 function App() {
   return (
@@ -24,5 +25,15 @@ function App() {
     </>
   );
 }
+
+function App() {
+  return (
+    <div className="App">
+      <ListaLivros />
+    </div>
+  );
+}
+
+export default App;
 
 export default App;
