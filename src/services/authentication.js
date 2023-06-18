@@ -5,7 +5,7 @@ const baseUrl = 'http://localhost:8080'
 
 let api = axios.create({ baseURL: baseUrl });
 
-export async function login(email, password) {
+export async function login(email, password, setLoggedUser) {
   let signin = await api.post(
     '/api/auth/signin',
     { email: email, password: password },
@@ -14,13 +14,17 @@ export async function login(email, password) {
     }
   );
 
-  localStorage.setItem('loggedUser', signin.data.id)
+  if (signin.status === 200) { 
+    let jwt = signin.data.jwtCookie.split(';').map(s => { return s.trim().split('=')[1] })[0]
+    
+    localStorage.setItem('userJwt', jwt)
+    console.log(parseAuthToken(jwt));
 
-  let jwt = signin.data.jwtCookie.split(';').map(s => { return s.trim().split('=')[1] })[0]
+    const user = await api.get(`/api/users/${signin.data.id}`, { withCredentials: true });
+    let userDetails = user.data;
 
-  localStorage.setItem('userJwt', jwt)
-
-  console.log(parseAuthToken(jwt));
+    setLoggedUser({ user: signin.data, userDetails: userDetails })
+  }
 }
 
 
@@ -40,10 +44,8 @@ export async function signUp(name, email, password, role, onSignUp) {
 }
 
 
-export function logOut() {
-  document.cookie = ''
-  localStorage.removeItem('loggedUser')
-  localStorage.removeItem('userJwt')
+export async function logOut() {
+  api.post('/api/auth/signout', {}, { withCredentials: true})
 }
 
 
@@ -61,5 +63,12 @@ function parseAuthToken(token) {
 }
 
 
-const authentication = { login, signUp, logOut, isTokenValid }
+async function getUser(userId, setUserDetails) {
+  const user = await api.get(`/api/users/${userId}`, { withCredentials: true });
+  let userDetails = user.data;
+  setUserDetails(userDetails);
+}
+
+
+const authentication = { login, signUp, logOut, isTokenValid, getUser }
 export default authentication;

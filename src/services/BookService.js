@@ -8,25 +8,22 @@ export async function getBooks() {
 }
 
 
-async function getReadingList() {
-    const loggedUser = localStorage.getItem('loggedUser');
-    const response = await api.get(`/api/read/${loggedUser}`, { withCredentials: true })
+export async function getReadingList(userId) {
+    const response = await api.get(`/api/read/${userId}`, { withCredentials: true })
 
     return response.data
 }
 
 
-async function getStarredBooks() {
-    const loggedUser = localStorage.getItem('loggedUser');
-    const response = await api.get(`/api/users/${loggedUser}/favorite-books`, { withCredentials: true })
+export async function getStarredBooks(userId) {
+    const response = await api.get(`/api/users/${userId}/favorite-books`, { withCredentials: true })
 
     return response.data
 }
 
 
-async function getFinishedBooks() {
-    const loggedUser = localStorage.getItem('loggedUser');
-    const response = await api.get(`/api/users/${loggedUser}/finished-books`, { withCredentials: true })
+export async function getFinishedBooks(userId) {
+    const response = await api.get(`/api/users/${userId}/finished-books`, { withCredentials: true })
 
     return response.data
 }

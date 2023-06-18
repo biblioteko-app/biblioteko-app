@@ -32,7 +32,7 @@ const Details = ({ onLogin }) => {
         event.preventDefault();
         const erro = document.getElementById('erro');
 
-        authentication.login(email, password)
+        authentication.login(email, password, onLogin)
         navigate('/')
 
         // // Lógica de autenticação

@@ -1,29 +1,15 @@
 import React, {useState} from 'react'
 import Details from '../components/Login/Details';
-import Logout from '../components/Login/Logout';
+import Profile from '../components/Login/Logout';
 
-const LoginSignUp = () => {
-  const [loggedIn, setLoggedIn] = useState(false);
-
-  const onLogin = () => {
-    setLoggedIn(true);
-    localStorage.setItem('isLoggedIn', 'true');
-  };
-
-  const onLogout = () => {
-    setLoggedIn(false);
-    localStorage.removeItem('isLoggedIn');
-    // Limpar quaisquer informações relacionadas ao usuário autenticado, se necessário
-  };
-
-  const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+const LoginSignUp = ({ setLoggedUser, user}) => {
 
   return (
-    <div>
-      {isLoggedIn ? (
-        <Logout onLogout={onLogout}/>
+    <div >
+      { user.void === undefined ? (
+        <Profile onLogout={setLoggedUser} user={user}/>
       ) : (
-        <Details onLogin={onLogin} />
+        <Details onLogin={setLoggedUser} />
       )}
     </div>
   );

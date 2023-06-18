@@ -9,29 +9,33 @@ import AddClass from './pages/AddClass'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer/Footer'
 import Books from './pages/Books/Books'
+import authentication from './services/authentication'
 
 function App() {
   // Aqui você pode substituir 'user' pelo objeto que representa o usuário logado
-  const [logged, setLogged] = useState(true) 
-  const user = {
-    role: 'professor'
-  }
+
+  let user = {}
+
+  const [loggedUser, setLoggedUser] = useState({ void: true });
+  console.log(loggedUser)
+
+  // authentication.logOut();
 
   return (
     <>
       <BrowserRouter>
-        <Navbar user={user} />
+        <Navbar user={loggedUser} /> 
         <Routes>
-          <Route path="/" element={logged ? <Home />: <LandingPage />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/books" element={<Books />} />
-          <Route path="/turmas" element={<AddClass />} />
-          <Route path="/loginSignUp" element={<LoginSignUp />} />
-          {user && user.role === 'professor' && (
-            <Route path="/addBook" element={<AddBook />} />
+          <Route path="/" element={ loggedUser.void === undefined ? <Home user={loggedUser}/>: <LandingPage />} />
+          <Route path="/about" element={<About user={loggedUser}/>} />
+          <Route path="/books" element={<Books user={loggedUser}/>} />
+          <Route path="/turmas" element={<AddClass user={loggedUser}/>} />
+          <Route path="/profile" element={<LoginSignUp setLoggedUser={setLoggedUser} user={loggedUser}/>} />
+          {user.userDetails && user.userDetails.role === 'PROFESSOR' && (
+            <Route path="/addBook" element={<AddBook user={loggedUser}/>} />
           )}
-          {user && user.role === 'professor' && (
-            <Route path="/addClass" element={<AddClass />} />
+          {user.userDetails && user.userDetails.role === 'PROFESSOR' && (
+            <Route path="/addClass" element={<AddClass user={loggedUser}/>} />
           )}
         </Routes>
       </BrowserRouter>
