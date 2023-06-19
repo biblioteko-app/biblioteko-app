@@ -8,21 +8,26 @@
     top: 50%;
     left: 50%;
     overflow: scroll;
+    flex-direction: column;
+    gap: 0rem;
+    background-color: #F7F7F7;
+    border-radius: 15px;
 }
 
 .turma-information {
     display: grid;
     grid-template-columns: 3fr 3fr 3fr 1fr;
-    grid-template-rows: min-content min-content auto;
+    grid-template-rows: 1fr 1fr 1fr;
     grid-template-areas: 
         "a d e f"
-        "b g e f"
-        "c g e f";
+        "b d e f"
+        "c d e f";
     background-color: #F7F7F7;
-    height: 80%;
+    /* height: 100%; */
     width: 90%;
-    padding: 50px 0px 50px 60px;
+    padding: 200px 0px 30px 60px;
     border-radius: 15px;
+    /* overflow: scroll; */
 }
 
 .turma-label-info {
@@ -40,117 +45,49 @@
 }
 
 .turma-subject-info {
-    
+    grid-area: b;
 }
 
-.value {
-    font-size: 17px;
-    color: #483E80;
-    border: transparent;
-    background-color: #F7F7F7;
-    border-radius: 5px;
-    width: 95%;
-    max-width: 100%;
-    overflow: auto;
+.turma-year-info {
+    grid-area: c;
 }
 
-
-.label {
-    font-size: 15px;
-    color: #A5A5A5;
-}
-
-
-.info {
-    margin: 10px;
-}
-
-
-.starred {
+.turma-professor-info {
+    grid-area: d;
     display: flex;
-    justify-content: right;
     align-items: center;
+    /* justify-content: space-around; */
+    gap: 1rem;
 }
 
-
-.heart {
-    width: 32px;
-    height: 32px;
-    stroke: #483E80;
-    stroke-width: 1px;
-    transition: 100ms;
-    cursor: pointer;
-}
-
-
-.synopsis {
-    grid-column-start: 1;
-    grid-column-end: 5;
-    padding: 20px;
-    margin: 20px 0px;
-    background-color: #F7F7F7;
-    border-radius: 15px;
-    box-shadow: inset -10px -10px 20px #FFFFFF, inset 5px 5px 20px 2px rgba(0, 0, 0, 0.25);
-}
-
-
-.photo-actions {
-    grid-column-start: 5;
-    grid-column-end: 6;
-    grid-row-start: 1;
-    grid-row-end: 4;
-    margin: 10px 20px;
-    display: flex;
-}
-
-.photo-rating {
-    display: flex;
-    flex-grow: 1;
-    flex-direction: column;
-    align-items: center;
-}
-
-
-.photo {
-    flex-grow: 1;
-    width: 80%;;
-    background-color: #555555;
-    color: white;
+.turma-photo-info {
+    grid-area: e;
+    max-width: 500px;
+    background-color: #483E80;
+    border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 15px;
-}
-
-.rating-editable {
-    margin: 30px;
-}
-
-
-.list-add {
-    padding: 10px;
-    height: 100%;
-    width: 100%;
-    border-radius: 10px;
-    border-color: transparent;
-    background-color: #63C7B2;
     color: white;
-    cursor: pointer;
-    font-size: 18px;
 }
 
-.list-add:hover {
-    background-color: #553399;
-    transition: 300ms;
+.turma-edit-button {
+    grid-area: f;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
-.list-add:active {
-    background-color: #FFFFFF;
-    border-color: #553399;
-    color: #553399;
-    transition: 100ms;
+.turma-professor-photo {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background-color: #483E80;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
 }
-
 
 .actions {
     display: flex;
@@ -183,3 +120,45 @@
     background-color: #483E80;
     color: white;
 }
+
+
+.turma-books {
+    background-color: #F7F7F7;
+    /* height: 30%; */
+    width: 90%;
+    padding: 50px 0px 50px 60px;
+    border-radius: 15px;
+    /* overflow: scroll; */
+}
+
+
+.turma-students {
+    background-color: #F7F7F7;
+    /* height: 30%; */
+    width: 90%;
+    padding: 30px 0px 30px 60px;
+    border-radius: 15px;
+}
+
+
+.turma-student {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+
+.turma-student-name {
+
+}
+
+
+
+.turma-student-photo {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background-color: #483E80;
+}
+

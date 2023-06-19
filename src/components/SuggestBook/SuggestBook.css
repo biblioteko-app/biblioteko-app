@@ -28,3 +28,51 @@
 .search-result {
     width: 80%;
 }
+
+
+.bookcard-container {
+    height: 200px;
+    width: 150px;
+    border-radius: 15px;
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+
+.book-name {
+    color: #483E80;
+    font-size: 1.5rem;
+}
+
+
+.book-author {
+    color: #A5A5A5;
+}
+
+.select-button {
+    padding: 10px;
+    /* height: 100%; */
+    /* width: 100%; */
+    border-radius: 10px;
+    border-color: transparent;
+    background-color: #63C7B2;
+    color: white;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.select-button:hover {
+    background-color: #553399;
+    transition: 300ms;
+}
+
+.select-button:active {
+    background-color: #FFFFFF;
+    border-color: #553399;
+    color: #553399;
+    transition: 100ms;
+}

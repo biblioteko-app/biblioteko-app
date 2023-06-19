@@ -14,7 +14,7 @@ import { getClasses } from '../../services/TurmaService'
 // import { getBooks } from '../../services/BookService'
 import TurmaCard from '../TurmaCard/TurmaCard'
 
-export default function TurmasCarousel({ user }) {
+export default function TurmasCarousel({ user, editable, readingList, starredBooks }) {
   
   const [turmas, setTurmas] = useState([]);
 
@@ -43,7 +43,7 @@ export default function TurmasCarousel({ user }) {
     turma => {
       return (
         <SwiperSlide>
-          <TurmaCard user={user} turma={turma}/>
+          <TurmaCard user={user} turma={turma} editable={editable} readingList={readingList} starredBooks={starredBooks} />
         </SwiperSlide>
       )
     }

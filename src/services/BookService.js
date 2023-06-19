@@ -99,3 +99,43 @@ export async function createBook(userId, book) {
 
     return response.status === 201
 }
+
+// Função para deletar um livro
+export async function deleteBook(userId, bookId) {
+    const response = await api.delete(`/api/book/${userId}/${bookId}`, { withCredentials: true });
+
+    return response.status === 200;
+}
+
+// Função para buscar um livro pelo id
+export async function getBookById(userId, bookId, setBook) {
+    const response = await api.get(`/api/book/${userId}/${bookId}`, { withCredentials: true });
+
+    setBook(response.data)
+    return response.data;
+}
+
+// Função para avaliar um livro
+export async function rateBook(userId, bookId, rating) {
+    const response = await api.put(`/api/book/${userId}/${bookId}/rate`, { rating }, { withCredentials: true });
+
+    return response.status === 200;
+}
+
+// Função para obter avaliações de um livro
+export async function getBookRatings(userId, bookId, setRatings) {
+    const response = await api.get(`/api/book/${userId}/${bookId}/ratings`, { withCredentials: true });
+
+    setRatings(response.data)
+
+    return response.data;
+}
+
+
+export async function getAllBooks(userId, setBooks) {
+    const response = await api.get(`/api/book/books/${userId}`, { withCredentials: true });
+
+    setBooks(response.data)
+
+    return response.status === 200
+}

@@ -5,16 +5,11 @@ import authentication from '../../services/authentication'
 import { unstarBook, addBookToReadingList, starBook, editBook, getReadingList, getStarredBooks, isStarred } from '../../services/BookService'
 import { useNavigate } from 'react-router-dom'
 
-export default function Books(props) {
+export default function Books({ book, editable, user, isStarred, isInReadList, close }) {
   const navigate = useNavigate();
 
-  let book = props.book
-  // let [finalBook, setFinalBook] = useState(book)
-  let editable = props.editable
-  let user = props.user
-
-  const [starred, setStarred] = useState(props.isStarred)
-  const [reading, setReading] = useState(props.isInReadList)
+  const [starred, setStarred] = useState(isStarred)
+  const [reading, setReading] = useState(isInReadList)
 
   const handleStarred = () => {
     let r = false;
@@ -34,7 +29,7 @@ export default function Books(props) {
   const [author, setAuthor] = useState(book.author);
   const [edition, setEdition] = useState(book.edition);
   const [synopsis, setSynopsis] = useState(book.synopsis);
-  // const [photo, setPhoto] = useState(book.title);
+  const [photo, setPhoto] = useState(book.photo);
   const [accessLink, setAccessLink] = useState(book.accessLink);
 
   const [editMode, setEditMode] = useState(false);
@@ -54,14 +49,14 @@ export default function Books(props) {
         genre: gender,
         edition: edition,
         synopsis: synopsis,
-        photo: book.photo,
+        photo: photo,
         pages: pageNumber,
         accessLink: accessLink,
       }
 
       let result = editBook(user.user.id, b, book.id);
       console.log(b)
-      navigate("/books")
+      close()
     }
   }
 
@@ -121,7 +116,9 @@ export default function Books(props) {
 
           <div className="photo-actions">
             <div className="photo-rating">
-              <div className="photo">Photo</div>
+              <div className="photo">
+                <img src={photo} alt="Foto" />
+              </div>
 
               <Rating
                 name="rating"
@@ -133,7 +130,7 @@ export default function Books(props) {
               />
 
               <div className="buttons">
-                <button className="list-add" onClick={() => { addBookToReadingList(user.user.id, book.id) }} disabled={ reading } style={ reading ? {backgroundColor: 'grey'} : {}}>
+                <button className="list-add" onClick={() => { addBookToReadingList(user.user.id, book.id); close() }} disabled={ reading } style={ reading ? {backgroundColor: 'grey'} : {}}>
                   { reading ? 'Adicionado na lista' : 'Adicionar à lista' }
                 </button>
               </div>

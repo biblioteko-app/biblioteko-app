@@ -28,7 +28,7 @@ export default function BookCard(props) {
           onClose={closing}
           >
         <div className='book-wrapper'>
-          <Book book={book} editable={editable} user={user} isInReadList={props.isInReadList} isStarred={props.isStarred} />
+          <Book book={book} editable={editable} user={user} isInReadList={props.isInReadList} isStarred={props.isStarred} close={closing}/>
           {/* <SuggestBook /> */}
           <button className='close-button' onClick={closing}>&#x2715;</button>
         </div>

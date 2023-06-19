@@ -122,7 +122,7 @@ const Navbar = ({ user }) => {
                   },
                 }}
               >
-                <ListItemText primaryTypographyProps={{ sx: { whiteSpace: 'nowrap' } }} primary={ user.userDetails !== undefined ? user.userDetails.name : "Sign in/ Sign up" } />
+                <ListItemText primaryTypographyProps={{ sx: { whiteSpace: 'nowrap' } }} primary={ user.userDetails !== undefined ? user.userDetails.name : "Entrar/Cadastrar" } />
               </ListItemButton>
           </ListItem>
         </ListMenu>
