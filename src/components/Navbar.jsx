@@ -44,10 +44,10 @@ const Navbar = ({ user }) => {
 
   if (user.user !== undefined) { 
     itemList.push({ text: 'Livros', to: '/books' }) 
-    itemList.push({ text: 'Turmas', to: '/AddClass' }) 
+    itemList.push({ text: 'Turmas', to: '/turmas' }) 
   }
 
-  itemList.push({ text: 'About', to: '/about' })
+  itemList.push({ text: 'Sobre', to: '/about' })
 
   useEffect(() => {
     // console.log(user)
@@ -99,7 +99,7 @@ const Navbar = ({ user }) => {
             </ListItem>
           ))}
 
-          <ListItem key={ user.userDetails !== undefined ? user.userDetails.name : "Sign in/ Sign up"}>
+          <ListItem key={ user.userDetails !== undefined ? user.userDetails.name : "Entrar/Cadastrar"}>
             <ListItemButton
                 component={Link}
                 to={"/profile"}

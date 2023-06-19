@@ -14,7 +14,7 @@ const Profile = ({ onLogout, user }) => {
 
     useEffect(() => {
         authentication.getUser(user.user.id, setUserDetails);
-        console.log(userDetails)
+        // console.log(userDetails)
     }, [ user ])
 
     return (
@@ -45,33 +45,7 @@ const Profile = ({ onLogout, user }) => {
             >
                 Logout
             </Button>
-            {/* {isLoggedIn ? (
-                <Button
-                variant="contained"
-                onClick={handleLogout}
-                size="medium"
-                sx={{
-                    fontSize: '0.9rem',
-                    textTransform: 'capitalize',
-                    py: 2,
-                    mt: 3,
-                    mb: 2,
-                    borderRadius: 0,
-                    backgroundColor: '#63C7B2',
-                    "&:hover": {
-                        backgroundColor: '#1e2a5a',
-                    }
-                }}
-            >
-                Logout
-            </Button>
-            ) : (
-                <p>
-                    Não está logado!
-                </p>
-            )} */}
         </div>
-
     )
 }
 

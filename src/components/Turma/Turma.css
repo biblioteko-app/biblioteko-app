@@ -1,4 +1,4 @@
-.background {
+.turma-container {
     display: flex;
     height: 100%;
     width: 100%;
@@ -7,12 +7,17 @@
     position: 'absolute' as 'absolute';
     top: 50%;
     left: 50%;
+    overflow: scroll;
 }
 
-.wrapper {
+.turma-information {
     display: grid;
-    grid-template-columns: 3fr 2fr 3fr 1fr 5fr;
+    grid-template-columns: 3fr 3fr 3fr 1fr;
     grid-template-rows: min-content min-content auto;
+    grid-template-areas: 
+        "a d e f"
+        "b g e f"
+        "c g e f";
     background-color: #F7F7F7;
     height: 80%;
     width: 90%;
@@ -20,6 +25,23 @@
     border-radius: 15px;
 }
 
+.turma-label-info {
+    color: #A5A5A5;
+    font-size: 15px;
+}
+
+.turma-info-value {
+    color: #483E80;
+    font-size: 17px;
+}
+
+.turma-name-info {
+    grid-area: a;
+}
+
+.turma-subject-info {
+    
+}
 
 .value {
     font-size: 17px;

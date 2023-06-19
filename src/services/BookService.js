@@ -2,36 +2,37 @@ import axios from 'axios'
 
 const api = axios.create({ baseURL: "http://localhost:8080" })
 
-export async function getBooks(userId) {
+export async function getBooks(userId, setBooks) {
     const res = await api.get(`/api/book/books/${userId}`, { withCredentials: true })
-
+    setBooks(res.data)
     return res.data;
 }
 
 
-export async function getReadingList(userId) {
+export async function getReadingList(userId, setReadingList) {
     const response = await api.get(`/api/read/${userId}`, { withCredentials: true })
-
+    setReadingList(response.data)
     return response.data
 }
 
 
-export async function getStarredBooks(userId) {
+export async function getStarredBooks(userId, setStarredBooks) {
     const response = await api.get(`/api/users/${userId}/favorite-books`, { withCredentials: true })
+    setStarredBooks(response.data)
 
     return response.data
 }
 
 
-export async function getFinishedBooks(userId) {
+export async function getFinishedBooks(userId, setFinishedBooks) {
     const response = await api.get(`/api/users/${userId}/finished-books`, { withCredentials: true })
-
+    setFinishedBooks(response.data)
     return response.data
 }
 
 
 export async function addBookToReadingList(userId, bookId) {
-    const response = await api.post(`/api/read/${userId}/${bookId}`, { readPages: 0 },  {withCredentials: true});
+    const response = await api.post(`/api/read/${userId}/${bookId}`, { readPages: 1 },  {withCredentials: true});
     if (response.status === 201) {
         return true
     } else {
@@ -60,10 +61,17 @@ export async function unstarBook(userId, bookId) {
 }
 
 
-export async function getAllMyBooks(userId) {
+export async function getAllMyBooks(userId, setMyBooks) {
     const response = await api.get(`/api/book/my-books/${userId}`, {withCredentials: true })
 
-    return response.status === 200 ? response.data : []
+    if (response.status === 200) { 
+
+        setMyBooks(response.data)
+        return true
+    } else {
+        setMyBooks([])
+        return false
+    }    
 }
 
 
@@ -74,4 +82,20 @@ export async function editBook(userId, book, bookId) {
         return true
     } 
     return false
+}
+
+
+export async function isStarred(userId, bookId) {
+    let s = []
+    getStarredBooks(userId, (v) => {s = v});
+
+    if (s.filter((b) => b.id === bookId).length > 0) { return true }
+    return false
+}
+
+
+export async function createBook(userId, book) {
+    const response = await api.post(`/api/book/${userId}`, {book}, { withCredentials: true })
+
+    return response.status === 201
 }

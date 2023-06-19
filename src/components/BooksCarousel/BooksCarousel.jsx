@@ -17,7 +17,7 @@ export default function BooksCarousel(options) {
   const editable = options.editable;
   const user = options.user;
 
-  console.log(books instanceof Array);
+  // console.log(books instanceof Array);
   const addToSchoolClass = options.addToSchoolClass;
   const schoolClass = options.schoolClass;
 
@@ -50,7 +50,7 @@ export default function BooksCarousel(options) {
     readBook => {
       if (Object.keys(readBook).length === 4) { isReadingList = true }
       const book = isReadingList ? readBook.book : readBook;
-      console.log(book)
+      // console.log(book)
       return (
         <SwiperSlide>
           <BookCard
@@ -71,6 +71,9 @@ export default function BooksCarousel(options) {
             schoolClass={schoolClass}
             editable={editable}
             user={user}
+            update={options.update}
+            isInReadList={options.readingList.filter((b) => b.id === book.id).length > 0}
+            isStarred={options.starredBooks.filter((b) => b.id === book.id).length > 0}
           />
         </SwiperSlide>   
       )
