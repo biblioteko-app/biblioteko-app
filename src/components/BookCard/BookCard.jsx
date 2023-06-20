@@ -9,10 +9,14 @@ import SuggestBook from '../SuggestBook/SuggestBook';
 
 export default function BookCard(props) {
   const { book } = props;
+  const user = props.user;
+  const editable = props.editable;
+
+
   const [isOpen, setIsOpen] = useState(false);
 
-  const closing = () => setIsOpen(false);
-  const opening = () => setIsOpen(true);
+  const closing = () => {setIsOpen(false); props.update(); }
+  const opening = () => {setIsOpen(true)}
   
   let addToSchoolClass = props.addToSchoolClass;
   let schoolClass = props.schoolClass;
@@ -24,8 +28,8 @@ export default function BookCard(props) {
           onClose={closing}
           >
         <div className='book-wrapper'>
-          {/* <Book book={book}/> */}
-          <SuggestBook />
+          <Book book={book} editable={editable} user={user} isInReadList={props.isInReadList} isStarred={props.isStarred} close={closing}/>
+          {/* <SuggestBook /> */}
           <button className='close-button' onClick={closing}>&#x2715;</button>
         </div>
       </Modal>
@@ -42,7 +46,7 @@ export default function BookCard(props) {
     <>
       <div className='card'>
         <div className='book-info'>
-          <div className='title'>{book.title}</div>
+          <div className='card-title'>{book.title}</div>
           <div className='author'>{book.author}</div>
           
           <Rating 

@@ -24,6 +24,12 @@
 .value {
     font-size: 17px;
     color: #483E80;
+    border: transparent;
+    background-color: #F7F7F7;
+    border-radius: 5px;
+    width: 95%;
+    max-width: 100%;
+    overflow: auto;
 }
 
 

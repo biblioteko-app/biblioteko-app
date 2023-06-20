@@ -3,7 +3,7 @@ import GetInTouch from '../components/GetInTouch';
 import GetStarted from '../components/GetStarted';
 import Header from '../components/Header';
 
-const Home = () => {
+const LandingPage = () => {
   return (
     <>
     <Header />
@@ -14,4 +14,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default LandingPage

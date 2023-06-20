@@ -1,0 +1,164 @@
+.turma-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    position: 'absolute' as 'absolute';
+    top: 50%;
+    left: 50%;
+    overflow: scroll;
+    flex-direction: column;
+    gap: 0rem;
+    background-color: #F7F7F7;
+    border-radius: 15px;
+}
+
+.turma-information {
+    display: grid;
+    grid-template-columns: 3fr 3fr 3fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: 
+        "a d e f"
+        "b d e f"
+        "c d e f";
+    background-color: #F7F7F7;
+    /* height: 100%; */
+    width: 90%;
+    padding: 200px 0px 30px 60px;
+    border-radius: 15px;
+    /* overflow: scroll; */
+}
+
+.turma-label-info {
+    color: #A5A5A5;
+    font-size: 15px;
+}
+
+.turma-info-value {
+    color: #483E80;
+    font-size: 17px;
+}
+
+.turma-name-info {
+    grid-area: a;
+}
+
+.turma-subject-info {
+    grid-area: b;
+}
+
+.turma-year-info {
+    grid-area: c;
+}
+
+.turma-professor-info {
+    grid-area: d;
+    display: flex;
+    align-items: center;
+    /* justify-content: space-around; */
+    gap: 1rem;
+}
+
+.turma-photo-info {
+    grid-area: e;
+    max-width: 500px;
+    background-color: #483E80;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.turma-edit-button {
+    grid-area: f;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.turma-professor-photo {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background-color: #483E80;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.actions {
+    display: flex;
+    width: 50px;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.action-buttons {
+    font-size: 32px;
+    width: 64px;
+    height: 64px;
+    background-color: transparent;
+    color: #555555;    
+    border-color: transparent;
+    border-radius: 15px;
+    margin: 10px;
+
+
+    &:hover {
+        color: #483E80;
+        transition: 100ms;
+        border-color: #483E80;
+    }
+}
+
+
+.action-buttons:active {
+    background-color: #483E80;
+    color: white;
+}
+
+
+.turma-books {
+    background-color: #F7F7F7;
+    /* height: 30%; */
+    width: 90%;
+    padding: 50px 0px 50px 60px;
+    border-radius: 15px;
+    /* overflow: scroll; */
+}
+
+
+.turma-students {
+    background-color: #F7F7F7;
+    /* height: 30%; */
+    width: 90%;
+    padding: 30px 0px 30px 60px;
+    border-radius: 15px;
+}
+
+
+.turma-student {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+
+.turma-student-name {
+
+}
+
+
+
+.turma-student-photo {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background-color: #483E80;
+}
+

@@ -1,0 +1,33 @@
+.box {
+    display: flex;
+    margin: auto;
+    max-width: 30%;
+    flex-direction: column;
+    padding: 30px;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+#logout {
+    width: fit-content;
+    padding: 11px 26px;
+    border-radius: 13px;
+    color: #FFFFFF;
+    filter: drop-shadow(-4px -4px 4px #FFFFFF) drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.profile {
+    width: 100%;
+    min-height: 2rem;
+    font-size: 1rem;
+    border-color: transparent;
+    border-radius: 15px;
+    box-shadow: inset -2px -2px 4px #FFFFFF, inset 2px 2px 4px rgba(0, 0, 0, 0.25);
+    background-color: #F7F7F7;
+    /* text-align: center; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0rem;
+}

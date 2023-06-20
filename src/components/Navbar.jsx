@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { AppBar, Toolbar, Box, List, ListItem, Typography, styled, ListItemButton, ListItemText } from '@mui/material';
 import { Link } from 'react-router-dom';
 import BImage from '../assets/Logo.svg';
@@ -28,16 +28,33 @@ const theme = {
   },
 };
 
-const itemList = [
-  { text: 'Home', to: '/' },
-  { text: 'Login/Sign-up', to: '/LoginSignUp' },
-  { text: 'Livros', to: '/books' },
-  { text: 'About', to: '/about' },
-  { text: 'Turmas', to: '/AddClass' },
-];
+// const itemList = [
+//   { text: 'Home', to: '/' },
+//   { text: 'Livros', to: '/books' },
+//   { text: 'About', to: '/about' },
+//   { text: 'Turmas', to: '/AddClass' },
+//   // { text: 'Login/Sign-up', to: '/LoginSignUp' },
+// ];
 
+const Navbar = ({ user }) => {
 
-const Navbar = () => {
+  const itemList = [
+    { text: 'Home', to: '/' },
+  ];
+
+  if (user.user !== undefined) { 
+    itemList.push({ text: 'Livros', to: '/books' }) 
+    itemList.push({ text: 'Turmas', to: '/turmas' }) 
+  }
+
+  itemList.push({ text: 'Sobre', to: '/about' })
+
+  useEffect(() => {
+    // console.log(user)
+  }, [ user ])
+
+  // console.log(user)
+
   return (
     <AppBar component="nav" position="sticky" sx={{ backgroundColor: theme.palette.primary.alternative }} elevation={0}>
       <StyledToolbar>
@@ -81,6 +98,33 @@ const Navbar = () => {
               </ListItemButton>
             </ListItem>
           ))}
+
+          <ListItem key={ user.userDetails !== undefined ? user.userDetails.name : "Entrar/Cadastrar"}>
+            <ListItemButton
+                component={Link}
+                to={"/profile"}
+                sx={{
+                  color: theme.palette.primary.main,
+                  backgroundColor: 'transparent',
+                  borderRadius: '2px',
+                  position: 'relative',
+                  '&:hover': {
+                    '&::after': {
+                      content: '""',
+                      position: 'absolute',
+                      left: '0',
+                      bottom: '-4px',
+                      width: '100%',
+                      height: '2px',
+                      backgroundColor: theme.palette.secondary.main,
+                      borderRadius: '2px',
+                    },
+                  },
+                }}
+              >
+                <ListItemText primaryTypographyProps={{ sx: { whiteSpace: 'nowrap' } }} primary={ user.userDetails !== undefined ? user.userDetails.name : "Entrar/Cadastrar" } />
+              </ListItemButton>
+          </ListItem>
         </ListMenu>
       </StyledToolbar>
     </AppBar>

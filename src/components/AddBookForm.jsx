@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { TextField, Button, useMediaQuery } from '@mui/material'
 import axios from 'axios'
+import { createBook } from '../services/BookService'
 
-const AddBookForm = () => {
+const AddBookForm = ({ user }) => {
   const [buttonHovered, setButtonHovered] = useState(false)
   const [title, setTitle] = useState('')
   const [author, setAuthor] = useState('')
@@ -16,32 +17,22 @@ const AddBookForm = () => {
     setButtonHovered(event.type === 'mouseenter')
   }
 
-  const handleSubmit = async event => {
+  const handleSubmit = event => {
     event.preventDefault()
 
     try {
-      const response = await axios.post('/api/books', {
-        title,
-        author,
-        genre,
-        edition,
-        synopsis,
-        pageCount,
-        accessLink
+      createBook(user.user.id, {
+        title: title,
+        author: author,
+        genre: genre,
+        edition: edition,
+        synopsis: synopsis,
+        photo: '',
+        pages: pageCount,
+        accessLink: accessLink
       })
 
-      console.log(response.data)
-
-      // Limpar os campos do formulário
-      setTitle('')
-      setAuthor('')
-      setGenre('')
-      setEdition('')
-      setSynopsis('')
-      setPageCount('')
-      setAccessLink('')
-
-      // Exibir mensagem de sucesso ou redirecionar o usuário
+      // console.log(response.data)
     } catch (error) {
       console.error(error)
       // Lidar com erros, exibir mensagens de erro ou tomar outras ações adequadas
